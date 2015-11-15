@@ -1,0 +1,8 @@
+\#c {
+    width: 600px;
+    height: 400px;
+}
+
+body {
+    background-color: #002b36;
+}

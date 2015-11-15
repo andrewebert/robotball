@@ -1,0 +1,1 @@
+: foreach ../coffee/*.coffee |> coffee -b -c -o . %f |> %B.js

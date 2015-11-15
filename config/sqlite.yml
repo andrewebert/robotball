@@ -1,0 +1,20 @@
+Default: &defaults
+  database: robotball.sqlite3
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: robotball_test.sqlite3
+  <<: *defaults
+
+Staging:
+  database: robotball_staging.sqlite3
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: robotball_production.sqlite3
+  poolsize: 100
+  <<: *defaults

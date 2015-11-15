@@ -1,0 +1,4 @@
+<script src="/static/js/lib/angular.js" type="text/javascript">
+<title>Robotball
+<div ng-app="gameApp" ng-controller="GameCtrl">
+    <canvas id="c">

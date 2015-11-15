@@ -1,0 +1,19 @@
+<script src="/static/js/lib/angular.js" type="text/javascript">
+<script src="/static/js/socket.js" type="text/javascript">
+<script src="static/js/lobby.js" type="text/javascript">
+<title>Robotball Lobby
+<div ng-app="lobbyApp" ng-controller="LobbyCtrl">
+    <div ng-show="id != undefined">
+        <div ng-show="!gotPlayers">
+            <h3>Enter username
+            <form>
+                <input autofocus type="text" ng-model="username">
+                <br>
+                <input type="submit" ng-click="setUsername(username)" value="Submit">
+        <div ng-show="gotPlayers">
+            <h3 ng-show="players.length == 0">No opponents available
+            <div ng-show="players.length > 0">
+                <h3>Select opponent
+                <ul>
+                    <li ng-repeat="player in players">
+                        <a ng-click="startGame(player.userId)">{{player.name}}
