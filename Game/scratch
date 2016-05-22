@@ -1,0 +1,17 @@
+{-x :: Object -> Int-}
+{-x (Left robot) = rx robot-}
+{-x (Right ball) = bx ball-}
+
+{-setX :: Object -> Int -> Object-}
+{-setX (Left robot) x = Left robot {rx = x}-}
+{-setX (Right ball) x = Right ball {bx = x}-}
+
+{-y :: Object -> Int-}
+{-y (Left robot) = ry robot-}
+{-y (Right ball) = by ball-}
+
+{-setY :: Object -> Int -> Object-}
+{-setY (Left robot) y = Left robot {ry = y}-}
+{-setY (Right ball) y = Right ball {by = y}-}
+
+

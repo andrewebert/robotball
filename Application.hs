@@ -28,13 +28,15 @@ import Network.Wai.Middleware.RequestLogger (Destination (Logger),
 import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
                                              toLogStr)
 
-import Data.Map as Map                      (empty)
+import Data.Map as Map                      (empty, insert)
 
 -- Import all relevant handler modules here.
 -- Don't forget to add new modules to your cabal file!
 import Handler.Common
 import Handler.Home
 import Handler.Game
+
+import GameServer
 
 -- This line actually creates our YesodDispatch instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see the
@@ -58,6 +60,12 @@ makeFoundation appSettings = do
     userId <- atomically $ newTVar 0
     users <- atomically $ newTVar Map.empty
     chan <- atomically newBroadcastTChan
+
+    games <- atomically $ do
+        dict <- newTVar Map.empty
+        connection <- newGameConnection 0 1
+        modifyTVar dict $ (Map.insert 0 connection) . (Map.insert 1 connection)
+        return dict
     -- We need a log function to create a connection pool. We need a connection
     -- pool to create our foundation. And we need our foundation to get a
     -- logging function. To get out of this loop, we initially create a
@@ -66,6 +74,7 @@ makeFoundation appSettings = do
     let mkFoundation appConnPool = App { nextUserId = userId
                                        , availableUsers = users
                                        , joinLobbyChan = chan
+                                       , gamesDict = games
                                        , ..}
         tempFoundation = mkFoundation $ error "connPool forced in tempFoundation"
         logFunc = messageLoggerSource tempFoundation appLogger

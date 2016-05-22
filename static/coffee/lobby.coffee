@@ -1,7 +1,7 @@
 app = angular.module('lobbyApp', ['socket'])
     
-app.controller 'LobbyCtrl', ['$scope', 'socket',
-    ($scope, socket) ->
+app.controller 'LobbyCtrl', ['$scope', '$window', 'socket',
+    ($scope, $window, socket) ->
         $scope.id = undefined
         $scope.gotPlayers = false
         $scope.players = []
@@ -22,6 +22,7 @@ app.controller 'LobbyCtrl', ['$scope', 'socket',
                     player.userId != data.userId)
             else if method == 'startGame'
                 console.log("Started game with " + data.opponent)
+                $window.location.href = "#{$window.location.origin}/game/#{$scope.id}"
             return
 
         $scope.startGame = (opponentId) ->
@@ -29,4 +30,7 @@ app.controller 'LobbyCtrl', ['$scope', 'socket',
 
         $scope.setUsername = (username) ->
             socket.send {method: "setName", name: username}
+
+        $window.onbeforeunload = ->
+            socket.send {method: "leave"}
 ]

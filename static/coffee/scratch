@@ -1,0 +1,57 @@
+                inst.animateMove "Blue", 0, "forward1", ->
+                    board.animateMove {
+                        "red": {
+                            "position": {"x": 3, "y": 7}
+                            "direction": "north"
+                            "layer": 0
+                        }
+                    }, ->
+                        board.animateMove {
+                            "ball": {
+                                "position": {"x": 3, "y": 7}
+                                "direction": "north"
+                                "layer": 1
+                            }
+                        },  ->
+                            board.animateMove {
+                                "pink": {
+                                    "position": {"x": 0, "y": 9}
+                                    "direction": "east"
+                                    "layer": 0
+                                }
+                            },  ->
+                                board.animateMove {
+                                    "pink": {
+                                        "position": {"x": 3, "y": 9}
+                                        "direction": "east"
+                                        "layer": 0
+                                    }
+                                }, ->
+                                    board.animateMove {
+                                        "pink": {
+                                            "position": {"x": 3, "y": 9}
+                                            "direction": "north"
+                                            "layer": 0
+                                        }
+                                    }, ->
+                                        board.animateMove {
+                                            "pink": {
+                                                "position": {"x": 3, "y": 8}
+                                                "direction": "north"
+                                                "layer": 0
+                                            }
+                                        }, ->
+                                            board.animateMove {
+                                                "red": {
+                                                    "position": {"x": 3, "y": 8}
+                                                    "direction": "north"
+                                                    "layer": 1
+                                                },
+                                                "ball": {
+                                                    "position": {"x": 3, "y": 8}
+                                                    "direction": "north"
+                                                    "layer": 2
+                                                }
+                                            }, ->
+                                                console.log("done")
+

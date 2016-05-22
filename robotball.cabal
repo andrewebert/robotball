@@ -23,6 +23,10 @@ library
                      Handler.Common
                      Handler.Home
                      Handler.Game
+                     GameServer
+                     Game.Game
+                     Game.Types
+                     Game.Serialize
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT
@@ -84,6 +88,7 @@ library
                  , containers
                  , vector
                  , time
+                 , lens
 
 executable         robotball
     if flag(library-only)

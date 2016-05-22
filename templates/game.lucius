@@ -1,7 +1,75 @@
-\#c {
-    width: 600px;
-    height: 400px;
+#container {
+    position: relative;
 }
+
+.canvas-container {
+    display: inline-block;
+}
+#submit {
+    width: 180px;
+    height: 60px;
+    position: relative;
+    left: 120px;
+    top: -65px;
+    font-size: 2em;
+}
+
+#submit[disabled] {
+    color: gray;
+    opacity: 0.4;
+}
+
+#instructions {
+    position: absolute;
+    width: 420px;
+    height: 780px;
+}
+
+#board {
+    width: 420px;
+    height: 780px;
+    position: absolute;
+}
+
+#score {
+    position: absolute;
+    left: 480px;
+    top: 25px;
+    width: 410.69px;
+    text-align: center;
+    color: #839496;
+}
+
+.goal {
+    position: absolute;
+    left: 514px;
+    top: 351px;
+    width: 350px;
+}
+
+.red {
+    color: #dc322f;
+}
+
+.blue {
+    color: #2aa198;
+}
+
+#rules {
+    margin: 0;
+    position: absolute;
+    width: 970px;
+    top: 20px;
+    left: 0px;
+}
+
+#help {
+    position: absolute;
+    left: 341px;
+    top: 836px;
+    width: 40px;
+}
+
 
 body {
     background-color: #002b36;

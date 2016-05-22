@@ -8,6 +8,9 @@ import Yesod.Auth.BrowserId (authBrowserId)
 import Yesod.Default.Util   (addStaticContentExternal)
 import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
+
+import GameServer
+
 {-import Data.Text-}
 {-import Control.Concurrent.STM.Lifted-}
 {-import Data.Map (Map)-}
@@ -16,16 +19,23 @@ import qualified Yesod.Core.Unsafe as Unsafe
 -- keep settings and values requiring initialization before your application
 -- starts running, such as database connections. Every handler will have
 -- access to the data present here.
+
 data UserStatus = Join Int Text | Leave Int | StartGame Int Int
+
+type GameDict = TVar (Map Int GameConnection)
+
 data App = App
     { appSettings    :: AppSettings
     , appStatic      :: Static -- ^ Settings for static file serving.
     , appConnPool    :: ConnectionPool -- ^ Database connection pool.
     , appHttpManager :: Manager
     , appLogger      :: Logger
+    -- lobby data
     , nextUserId     :: TVar Int
     , availableUsers :: TVar (Map Int Text)
     , joinLobbyChan  :: TChan UserStatus
+    -- game data
+    , gamesDict      :: GameDict
     }
 
 instance HasHttpManager App where
