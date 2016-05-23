@@ -30,10 +30,10 @@
             <span .red>{{ redScore }}#
             \ - #
             <span .blue>{{ blueScore }}
-        <img .goal ng-show="redGoal" src="/static/img/redGoal.png">
-        <img .goal ng-show="blueGoal" src="/static/img/blueGoal.png">
-        <img #help ng-click="rules = true" src="/static/img/help.png">
-        <img .goal ng-show="win" src="/static/img/win.png">
-        <img .goal ng-show="lose" src="/static/img/lose.png">
-        <img #rules ng-show="rules" ng-click="rules = false" src="/static/img/instructions.png">
+        <img .goal ng-show="redGoal" src="/static/img/redGoal.path.svg">
+        <img .goal ng-show="blueGoal" src="/static/img/blueGoal.path.svg">
+        <img #help ng-click="rules = true" src="/static/img/help.path.svg">
+        <img .goal ng-show="win" src="/static/img/win.path.svg">
+        <img .goal ng-show="lose" src="/static/img/lose.path.svg">
+        <img #rules ng-show="rules" ng-click="rules = false" src="/static/img/instructions.path.svg">
 

@@ -10,7 +10,7 @@ boardViewSetup = (dimensions, cellLocation) ->
         canvas.on 'mouse:down', (options) ->
             console.log 'test2'
 
-        fabric.Image.fromURL '/static/img/board.png', (img) ->
+        fabric.Image.fromURL '/static/img/board.path.svg', (img) ->
             img.set {
                 left: dimensions.boardLeft
                 top: dimensions.boardTop
@@ -26,7 +26,7 @@ boardViewSetup = (dimensions, cellLocation) ->
 
     placeRobots = (canvas, startLocations, callback) ->
         placeRobot = (robot, x, y, angle) ->
-            fabric.Image.fromURL "/static/img/robots/#{robot}.png", (img) ->
+            fabric.Image.fromURL "/static/img/robots/#{robot}.path.svg", (img) ->
                 img.set {
                     left: x
                     top: y
