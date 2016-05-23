@@ -5,18 +5,20 @@ boardViewSetup = (dimensions, cellLocation) ->
             width: dimensions.boardWidth + (dimensions.boardLeft * 2)
             height: dimensions.boardHeight + dimensions.boardTop
             selection: false
+            hoverCursor: ""
         }
 
         canvas.on 'mouse:down', (options) ->
             console.log 'test2'
 
-        fabric.Image.fromURL '/static/img/board.path.svg', (img) ->
+        fabric.Image.fromURL "#{STATIC}/img/board.path.svg", (img) ->
             img.set {
                 left: dimensions.boardLeft
                 top: dimensions.boardTop
                 width: dimensions.boardWidth
                 height: dimensions.boardHeight
                 selectable: false
+                hoverCursor: ""
             }
             canvas.add img
             img.moveTo(0)
@@ -26,7 +28,7 @@ boardViewSetup = (dimensions, cellLocation) ->
 
     placeRobots = (canvas, startLocations, callback) ->
         placeRobot = (robot, x, y, angle) ->
-            fabric.Image.fromURL "/static/img/robots/#{robot}.path.svg", (img) ->
+            fabric.Image.fromURL "#{STATIC}/img/robots/#{robot}.path.svg", (img) ->
                 img.set {
                     left: x
                     top: y
@@ -37,6 +39,7 @@ boardViewSetup = (dimensions, cellLocation) ->
                     originX: "center"
                     originY: "center"
                     layer: 0
+                    hoverCursor: ""
                 }
                 canvas.add img
                 callback robot, img

@@ -8,3 +8,5 @@ animateAll = (callback, object, func) ->
                 remaining -= 1
                 if remaining == 0
                     callback()
+
+STATIC = "http://andrewebert.github.io/robotball/static"

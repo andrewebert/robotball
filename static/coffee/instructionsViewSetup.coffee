@@ -6,6 +6,7 @@ instructionsViewSetup = (dimensions, instructions, opponentBufferLabels,
             width: 480
             height: 810
             selection: false
+            hoverCursor: ""
         }
         
         placeInstructions canvas, instructionCallback
@@ -19,7 +20,7 @@ instructionsViewSetup = (dimensions, instructions, opponentBufferLabels,
     # for each Fabric object representing an instruction
     placeInstructions = (canvas, callback) ->
         placeInstruction = (instruction, x, y) ->
-            fabric.Image.fromURL "/static/img/instructions/#{instruction}.path.svg", (img) ->
+            fabric.Image.fromURL "#{STATIC}/img/instructions/#{instruction}.path.svg", (img) ->
                 img.set {
                     left: x
                     top: y
@@ -29,6 +30,7 @@ instructionsViewSetup = (dimensions, instructions, opponentBufferLabels,
                     hasControls: false
                     hasBorders: false
                     instruction: instruction
+                    hoverCursor: "move"
                 }
                 callback img, canvas
                 canvas.add img
@@ -42,7 +44,7 @@ instructionsViewSetup = (dimensions, instructions, opponentBufferLabels,
     # Fabric object representing a buffer
     placeBuffers = (canvas, callback) ->
         placeBuffer = (buffer, x, y) ->
-            fabric.Image.fromURL "/static/img/buffers/#{buffer}.path.svg", (img) ->
+            fabric.Image.fromURL "#{STATIC}/img/buffers/#{buffer}.path.svg", (img) ->
                 img.set {
                     left: x
                     top: y
@@ -56,7 +58,7 @@ instructionsViewSetup = (dimensions, instructions, opponentBufferLabels,
                 canvas.add img
 
         placeHiddenBuffer = (buffer) ->
-            fabric.Image.fromURL "/static/img/buffers/#{buffer}.path.svg", (img) ->
+            fabric.Image.fromURL "#{STATIC}/img/buffers/#{buffer}.path.svg", (img) ->
                 img.set {
                     width: dimensions.bufferWidth
                     height: dimensions.bufferHeight
@@ -75,7 +77,7 @@ instructionsViewSetup = (dimensions, instructions, opponentBufferLabels,
 
     placePlaceholders = (canvas, callback) ->
         placePlaceholder = (buffer) ->
-            fabric.Image.fromURL "/static/img/robots/#{buffer}.path.svg", (img) ->
+            fabric.Image.fromURL "#{STATIC}/img/robots/#{buffer}.path.svg", (img) ->
                 img.set {
                     width: dimensions.placeholderWidth
                     height: dimensions.placeholderHeight
