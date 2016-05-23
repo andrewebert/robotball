@@ -44,7 +44,7 @@ instructionsView = (instructions, bufferLabels, opponentBufferLabels,
     # state
     animation = undefined
     animationStage = "default"
-    startingPlayer = false
+    startingPlayer = undefined
 
     placeholders = {}
     canvas = undefined
@@ -92,7 +92,15 @@ instructionsView = (instructions, bufferLabels, opponentBufferLabels,
 
     startTurn = (starting) ->
         startingPlayer = starting
-        showPlaceholders()
+        showPlaceholdersIfReady()
+
+    showPlaceholdersIfReady = ->
+        for label in opponentBufferLabels
+            if not placeholders[label]
+                return
+        if startingPlayer?
+            showPlaceholders()
+            return
 
     showPlaceholders = ->
         for i in [0...3]
@@ -127,6 +135,7 @@ instructionsView = (instructions, bufferLabels, opponentBufferLabels,
 
         placeholderCallback = (buffer, img) ->
             placeholders[buffer] = img
+            showPlaceholdersIfReady()
 
         canvas = setup.initialize(instructionCallback, animation.registerBuffer,
                 placeholderCallback)

@@ -22,13 +22,13 @@
      id="defs4094" />
   <sodipodi:namedview
      id="base"
-     pagecolor="#073642"
+     pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="1"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.79471915"
-     inkscape:cx="-455.82673"
+     inkscape:cx="-643.31435"
      inkscape:cy="422.04483"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -711,5 +711,11 @@
        height="73"
        x="441.15625"
        y="27.187439" />
+    <circle
+       id="path3750"
+       cx="258.65625"
+       cy="501.68744"
+       r="12.5"
+       style="fill:#839496;fill-opacity:1" />
   </g>
 </svg>

@@ -48,7 +48,7 @@ instructionsController = (fullCallback, nonFullCallback) ->
 
     initialize = ->
         emptyBuffers()
-        nonFullCallback(buffers)
+        #nonFullCallback(buffers)
         view = instructionsView(instructions, bufferLabels, opponentBufferLabels,
                 getInstructionAt, setInstructionAt)
         view.initialize()

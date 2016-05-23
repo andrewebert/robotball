@@ -75,7 +75,7 @@ instructionsViewAnimation = (dimensions, getInstructionLocation, getBufferLocati
         else
             # opponent's move
             [x,y] = getBufferCells()[buffer][sequence]
-            fabric.Image.fromURL "/static/img/instructions/#{instruction}.svg", (img) ->
+            fabric.Image.fromURL "/static/img/instructions/#{instruction}.png", (img) ->
                 img.set {
                     left: x
                     top: y

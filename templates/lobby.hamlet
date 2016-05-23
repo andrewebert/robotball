@@ -11,7 +11,7 @@
                 <div .player>
                     <h3>Enter username
                     <form #input>
-                        <img src="/static/img/name.svg">
+                        <img src="/static/img/name.png">
                         <input .username autofocus type="text" ng-model="username">
                         <input type="submit" ng-click="setUsername(username)" value="Confirm">
             <div ng-show="gotPlayers">
@@ -19,6 +19,6 @@
                 <div ng-show="players.length > 0">
                     <h3>Select opponent
                     <div .player ng-repeat="player in players">
-                        <img src="/static/img/name.svg">
+                        <img src="/static/img/name.png">
                         <p .username>{{player.name}}
                         <button ng-click="startGame(player.userId)">Challenge
